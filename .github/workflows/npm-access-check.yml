@@ -16,6 +16,8 @@ jobs:
         run: |
           npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
           npm whoami
+          npm access list packages jackokerman --json || true
           npm view @jackokerman/oxlint-config version --json || true
-          npm access public @jackokerman/oxlint-config || true
+          npm access get status @jackokerman/oxlint-config || true
+          npm access set status=public @jackokerman/oxlint-config || true
           npm view @jackokerman/oxlint-config version --json
