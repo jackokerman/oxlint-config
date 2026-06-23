@@ -8,6 +8,7 @@ fi
 
 public-content-guard --worktree \
 	README.md \
+	AGENTS.md \
 	package.json \
 	.releaserc.json \
 	.github \
