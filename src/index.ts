@@ -7,6 +7,10 @@ export const runtimeConfig = defineConfig({
 	plugins: ["typescript", "unicorn", "import", "promise", "node"],
 	jsPlugins: [
 		{
+			name: "jsdoc-js",
+			specifier: "eslint-plugin-jsdoc",
+		},
+		{
 			name: "simple-import-sort",
 			specifier: "eslint-plugin-simple-import-sort",
 		},
@@ -57,6 +61,43 @@ export const importsConfig = defineConfig({
 	},
 });
 
+const jsdocDeclarationContexts = [
+	"ArrowFunctionExpression",
+	"ClassDeclaration",
+	"FunctionDeclaration",
+	"FunctionExpression",
+	"TSInterfaceDeclaration",
+	"TSTypeAliasDeclaration",
+];
+
+/**
+ * It enforces JSDoc on exported functions, classes, and TypeScript types.
+ */
+export const jsdocConfig = defineConfig({
+	rules: {
+		"jsdoc-js/multiline-blocks": ["error", {noSingleLineBlocks: true}],
+		"jsdoc-js/require-description": [
+			"error",
+			{contexts: jsdocDeclarationContexts},
+		],
+		"jsdoc-js/require-description-complete-sentence": "error",
+		"jsdoc-js/require-jsdoc": [
+			"error",
+			{
+				contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"],
+				publicOnly: {esm: true},
+				require: {
+					ArrowFunctionExpression: true,
+					ClassDeclaration: true,
+					FunctionDeclaration: true,
+					FunctionExpression: true,
+					MethodDefinition: false,
+				},
+			},
+		],
+	},
+});
+
 /**
  * It contains general JavaScript and TypeScript style rules.
  */
@@ -87,7 +128,13 @@ export const styleConfig = defineConfig({
  * It is the complete shared preset used by ordinary package consumers.
  */
 export const config = defineConfig({
-	extends: [runtimeConfig, typescriptConfig, importsConfig, styleConfig],
+	extends: [
+		runtimeConfig,
+		typescriptConfig,
+		importsConfig,
+		jsdocConfig,
+		styleConfig,
+	],
 });
 
 export default config;

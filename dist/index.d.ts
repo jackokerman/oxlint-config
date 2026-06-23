@@ -48,6 +48,33 @@ export declare const importsConfig: {
     };
 };
 /**
+ * It enforces JSDoc on exported functions, classes, and TypeScript types.
+ */
+export declare const jsdocConfig: {
+    rules: {
+        "jsdoc-js/multiline-blocks": ["error", {
+            noSingleLineBlocks: boolean;
+        }];
+        "jsdoc-js/require-description": ["error", {
+            contexts: string[];
+        }];
+        "jsdoc-js/require-description-complete-sentence": "error";
+        "jsdoc-js/require-jsdoc": ["error", {
+            contexts: string[];
+            publicOnly: {
+                esm: boolean;
+            };
+            require: {
+                ArrowFunctionExpression: boolean;
+                ClassDeclaration: boolean;
+                FunctionDeclaration: boolean;
+                FunctionExpression: boolean;
+                MethodDefinition: boolean;
+            };
+        }];
+    };
+};
+/**
  * It contains general JavaScript and TypeScript style rules.
  */
 export declare const styleConfig: {
@@ -118,6 +145,29 @@ export declare const config: {
             "simple-import-sort/exports": "error";
             "simple-import-sort/imports": "error";
             "sort-imports": "off";
+        };
+    } | {
+        rules: {
+            "jsdoc-js/multiline-blocks": ["error", {
+                noSingleLineBlocks: boolean;
+            }];
+            "jsdoc-js/require-description": ["error", {
+                contexts: string[];
+            }];
+            "jsdoc-js/require-description-complete-sentence": "error";
+            "jsdoc-js/require-jsdoc": ["error", {
+                contexts: string[];
+                publicOnly: {
+                    esm: boolean;
+                };
+                require: {
+                    ArrowFunctionExpression: boolean;
+                    ClassDeclaration: boolean;
+                    FunctionDeclaration: boolean;
+                    FunctionExpression: boolean;
+                    MethodDefinition: boolean;
+                };
+            }];
         };
     } | {
         rules: {
