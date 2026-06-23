@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": ["bun-types"]
+	},
+	"include": ["src", "oxlint.config.ts"]
+}
