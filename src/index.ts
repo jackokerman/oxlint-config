@@ -37,7 +37,7 @@ const config = defineConfig({
 		"func-style": ["error", "declaration", {allowArrowFunctions: true}],
 		"import/no-named-export": "off",
 		"import/no-nodejs-modules": "off",
-		"max-params": ["error", 3],
+		"max-params": ["error", 4],
 		"no-await-in-loop": "off",
 		"no-else-return": ["error", {allowElseIf: false}],
 		"no-magic-numbers": "off",
