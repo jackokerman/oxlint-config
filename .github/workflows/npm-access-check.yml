@@ -1,0 +1,21 @@
+name: npm access check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm whoami
+          npm view @jackokerman/oxlint-config version --json || true
+          npm access public @jackokerman/oxlint-config || true
+          npm view @jackokerman/oxlint-config version --json
