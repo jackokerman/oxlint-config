@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/jackokerman/oxlint-config/compare/v1.5.0...v1.5.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* tune strict lint rule options ([895ce4d](https://github.com/jackokerman/oxlint-config/commit/895ce4d80dce14a27f99b8da1630830da918c6f5))
+
 # [1.5.0](https://github.com/jackokerman/oxlint-config/compare/v1.4.0...v1.5.0) (2026-06-23)
 
 
