@@ -3,10 +3,15 @@ name: npm access check
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -20,4 +25,5 @@ jobs:
           npm view @jackokerman/oxlint-config version --json || true
           npm access get status @jackokerman/oxlint-config || true
           npm access set status=public @jackokerman/oxlint-config || true
+          npm publish --access public --tag latest --provenance
           npm view @jackokerman/oxlint-config version --json
