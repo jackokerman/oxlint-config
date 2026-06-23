@@ -44,6 +44,8 @@ export const typescriptConfig = defineConfig({
 			},
 		],
 		"typescript/no-explicit-any": "error",
+		"typescript/no-empty-object-type": "error",
+		"typescript/no-wrapper-object-types": "error",
 	},
 });
 
@@ -104,28 +106,62 @@ export const jsdocConfig = defineConfig({
 });
 
 /**
+ * It contains promise-chain safety rules.
+ */
+export const promiseConfig = defineConfig({
+	rules: {
+		"no-promise-executor-return": "error",
+		"promise/always-return": "error",
+		"promise/catch-or-return": "error",
+		"promise/no-return-wrap": "error",
+	},
+});
+
+/**
  * It contains general JavaScript and TypeScript style rules.
  */
 export const styleConfig = defineConfig({
 	rules: {
 		curly: "error",
+		"default-case-last": "error",
+		"default-param-last": "error",
 		eqeqeq: ["error", "always"],
 		"func-style": ["error", "declaration", {allowArrowFunctions: true}],
+		"guard-for-in": "error",
 		"import/no-named-export": "off",
 		"import/no-nodejs-modules": "off",
 		"max-params": ["error", 4],
+		"no-alert": "error",
 		"no-await-in-loop": "off",
 		"no-else-return": ["error", {allowElseIf: false}],
+		"no-implicit-coercion": "error",
 		"no-magic-numbers": "off",
+		"no-new-func": "error",
 		"no-nested-ternary": "off",
+		"no-param-reassign": ["error", {props: true}],
 		"no-ternary": "off",
+		"no-throw-literal": "error",
 		"no-useless-concat": "error",
+		"no-useless-return": "error",
 		"no-var": "error",
+		"object-shorthand": "error",
+		"operator-assignment": "error",
+		"prefer-exponentiation-operator": "error",
 		"prefer-const": ["error", {destructuring: "all"}],
+		"prefer-object-spread": "error",
+		"prefer-regex-literals": "error",
 		"prefer-template": "error",
+		radix: ["error", "always"],
 		"sort-keys": "off",
 		"unicorn/no-abusive-eslint-disable": "error",
+		"unicorn/no-instanceof-array": "error",
 		"unicorn/no-nested-ternary": "off",
+		"unicorn/no-new-array": "error",
+		"unicorn/no-useless-undefined": "error",
+		"unicorn/prefer-includes": "error",
+		"unicorn/prefer-node-protocol": "error",
+		"unicorn/prefer-string-slice": "error",
+		yoda: ["error", "never"],
 	},
 });
 
@@ -138,6 +174,7 @@ export const config = defineConfig({
 		typescriptConfig,
 		importsConfig,
 		jsdocConfig,
+		promiseConfig,
 		styleConfig,
 	],
 });
