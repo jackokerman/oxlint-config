@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/jackokerman/oxlint-config/compare/v1.0.0...v1.1.0) (2026-06-23)
+
+
+### Features
+
+* enforce function declarations ([b501e9a](https://github.com/jackokerman/oxlint-config/commit/b501e9a7d155e888f4c2c8e18f953aedb5d3f844))
+* tighten base lint rules ([991655d](https://github.com/jackokerman/oxlint-config/commit/991655d42e064588b83fba3f19733f087ea8ffa6))
+
 # 1.0.0 (2026-06-23)
 
 
