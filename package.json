@@ -16,7 +16,8 @@
 	},
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",
-		"check": "bun run lint && bun run typecheck && bun run build",
+		"check": "bun run check:public-content && bun run lint && bun run typecheck && bun run build",
+		"check:public-content": "scripts/check-public-content.sh",
 		"lint": "oxlint",
 		"lint:fix": "oxlint --fix",
 		"typecheck": "tsc --noEmit"

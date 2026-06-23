@@ -1,6 +1,6 @@
 # @jackokerman/oxlint-config
 
-Shared Oxlint defaults for my JS and TS tools.
+Shared Oxlint defaults for JavaScript and TypeScript projects.
 
 ## Usage
 
@@ -19,11 +19,15 @@ import {defineConfig} from "oxlint";
 export default defineConfig({extends: [config]});
 ```
 
-## Rules
+## Development
 
-This config starts from Devvy's resolved Oxlint settings, with `suspicious` promoted to errors and `perf` kept as warnings. It enforces import declaration/member sorting, import-at-top placement, duplicate import cleanup, separate top-level type imports, `type` aliases, function declarations for named functions while allowing arrow functions, strict equality, `const` for variables that are never reassigned, `let`/`const` instead of `var`, and early returns instead of unnecessary `else` blocks.
+The exported config is the source of truth for enabled rules.
 
-It does not enforce object key sorting, ternary bans, magic number bans, Node builtin bans, or named export bans.
+Run the local checks before publishing:
+
+```sh
+bun run check
+```
 
 ## Release policy
 
@@ -34,7 +38,3 @@ Use conventional commits:
 - Breaking changes publish a major through `!` or `BREAKING CHANGE:`.
 
 New lint errors are treated as minor releases by default. Package API or config-consumption breaks are major releases.
-
-## First publish checkpoint
-
-Before the first release, configure npm trusted publishing for this repository or complete `npm login` in the release environment. Then run the release workflow from `main` and verify `@jackokerman/oxlint-config` is visible on npm.
