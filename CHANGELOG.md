@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jackokerman/oxlint-config/compare/v1.1.1...v1.2.0) (2026-06-23)
+
+
+### Features
+
+* enforce stricter TypeScript lint rules ([058ab96](https://github.com/jackokerman/oxlint-config/commit/058ab96011241329bf2e0145fe5d10021f3db85a))
+
 ## [1.1.1](https://github.com/jackokerman/oxlint-config/compare/v1.1.0...v1.1.1) (2026-06-23)
 
 
