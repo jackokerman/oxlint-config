@@ -15,6 +15,7 @@ This package publishes Jack Okerman's shared Oxlint config for JavaScript and Ty
 - Start from the local Oxlint schema: `node_modules/oxlint/configuration_schema.json`.
 - Check rule names and option shapes in the schema before editing config.
 - Confirm candidate rules against the current package with `bun run lint` or `node_modules/oxlint/bin/oxlint -D <rule>`.
+- Before releasing a new rule, probe known local downstream consumers when practical to calibrate noise and fixability.
 - Preserve the peer compatibility floor in `package.json`. If a new rule may not exist in the peer floor, probe it with the peer version before adding it, for example with `npx --yes oxlint@<version>`.
 - For JavaScript plugin rules, remember `jsPlugins` support is less stable than built-in Rust plugins; prefer built-in Oxlint plugins when they cover the behavior.
 
