@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/jackokerman/oxlint-config/compare/v1.5.1...v1.6.0) (2026-06-23)
+
+
+### Features
+
+* expand strict lint rules ([7e7b794](https://github.com/jackokerman/oxlint-config/commit/7e7b79465f07e43eed8bc49db689c9412cff1be8))
+
 ## [1.5.1](https://github.com/jackokerman/oxlint-config/compare/v1.5.0...v1.5.1) (2026-06-23)
 
 
