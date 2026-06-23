@@ -113,6 +113,7 @@ export declare const styleConfig: {
         "no-new-func": "error";
         "no-nested-ternary": "off";
         "no-param-reassign": ["error", {
+            ignorePropertyModificationsFor: string[];
             props: true;
         }];
         "no-ternary": "off";
@@ -135,7 +136,9 @@ export declare const styleConfig: {
         "unicorn/no-instanceof-array": "error";
         "unicorn/no-nested-ternary": "off";
         "unicorn/no-new-array": "error";
-        "unicorn/no-useless-undefined": "error";
+        "unicorn/no-useless-undefined": ["error", {
+            checkArguments: false;
+        }];
         "unicorn/prefer-includes": "error";
         "unicorn/prefer-node-protocol": "error";
         "unicorn/prefer-string-slice": "error";
@@ -238,6 +241,7 @@ export declare const config: {
             "no-new-func": "error";
             "no-nested-ternary": "off";
             "no-param-reassign": ["error", {
+                ignorePropertyModificationsFor: string[];
                 props: true;
             }];
             "no-ternary": "off";
@@ -260,7 +264,9 @@ export declare const config: {
             "unicorn/no-instanceof-array": "error";
             "unicorn/no-nested-ternary": "off";
             "unicorn/no-new-array": "error";
-            "unicorn/no-useless-undefined": "error";
+            "unicorn/no-useless-undefined": ["error", {
+                checkArguments: false;
+            }];
             "unicorn/prefer-includes": "error";
             "unicorn/prefer-node-protocol": "error";
             "unicorn/prefer-string-slice": "error";
