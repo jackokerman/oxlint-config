@@ -63,6 +63,7 @@ const jsdocDeclarationContexts = [
     "FunctionDeclaration",
     "FunctionExpression",
     "TSInterfaceDeclaration",
+    "TSPropertySignature",
     "TSTypeAliasDeclaration",
 ];
 /**
@@ -79,7 +80,11 @@ export const jsdocConfig = defineConfig({
         "jsdoc-js/require-jsdoc": [
             "error",
             {
-                contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"],
+                contexts: [
+                    "TSInterfaceDeclaration",
+                    "TSPropertySignature",
+                    "TSTypeAliasDeclaration",
+                ],
                 publicOnly: { esm: true },
                 require: {
                     ArrowFunctionExpression: true,
