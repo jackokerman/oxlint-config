@@ -31,6 +31,7 @@ This package publishes Jack Okerman's shared Oxlint config for JavaScript and Ty
 
 - Run `bun run check` before committing.
 - Commit with a conventional commit.
-- Exported lint behavior changes are release-worthy. Use `feat:` for new lint errors by default, `fix:` for corrections to a just-released rule or package behavior, and `!` or `BREAKING CHANGE:` for config-consumption breaks.
+- Exported lint behavior changes are not done until they are released. After pushing the source commit, run the manual Release workflow and confirm the published `@jackokerman/oxlint-config` version before updating consumers.
+- Use `feat:` for new lint errors by default, `fix:` for corrections to a just-released rule or package behavior, and `!` or `BREAKING CHANGE:` for config-consumption breaks.
 - After a release, update local downstream repos that consume `@jackokerman/oxlint-config`. Fix only fallout caused by the new config, run each repo's checks, then commit and push those updates separately.
 - Do not release or roll out docs-only, README-only, or source-repo check-tooling changes unless the user asks.
