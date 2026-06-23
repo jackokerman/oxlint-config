@@ -26,15 +26,23 @@ declare const config: {
         "simple-import-sort/imports": "error";
         "sort-imports": "off";
         curly: "error";
+        eqeqeq: ["error", "always"];
         "func-style": ["error", "declaration", {
             allowArrowFunctions: true;
         }];
         "import/no-named-export": "off";
         "import/no-nodejs-modules": "off";
         "no-await-in-loop": "off";
+        "no-else-return": ["error", {
+            allowElseIf: false;
+        }];
         "no-magic-numbers": "off";
         "no-nested-ternary": "off";
         "no-ternary": "off";
+        "no-var": "error";
+        "prefer-const": ["error", {
+            destructuring: "all";
+        }];
         "sort-keys": "off";
         "unicorn/no-nested-ternary": "off";
     };

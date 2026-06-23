@@ -21,7 +21,7 @@ export default defineConfig({extends: [config]});
 
 ## Rules
 
-This config starts from Devvy's resolved Oxlint settings, with `suspicious` promoted to errors and `perf` kept as warnings. It enforces import declaration/member sorting, import-at-top placement, duplicate import cleanup, separate top-level type imports, `type` aliases, and function declarations for named functions while allowing arrow functions.
+This config starts from Devvy's resolved Oxlint settings, with `suspicious` promoted to errors and `perf` kept as warnings. It enforces import declaration/member sorting, import-at-top placement, duplicate import cleanup, separate top-level type imports, `type` aliases, function declarations for named functions while allowing arrow functions, strict equality, `const` for variables that are never reassigned, `let`/`const` instead of `var`, and early returns instead of unnecessary `else` blocks.
 
 It does not enforce object key sorting, ternary bans, magic number bans, Node builtin bans, or named export bans.
 
