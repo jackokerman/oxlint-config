@@ -13,6 +13,7 @@ This package publishes Jack Okerman's shared Oxlint config for JavaScript and Ty
 ## Rule discovery
 
 - Start from the local Oxlint schema: `node_modules/oxlint/configuration_schema.json`.
+- Query the schema narrowly: use a JSON parser, a targeted `rg` around a known rule or definition name, or `oxlint --rules` for inventory. Do not dump broad matches from the full schema into the session.
 - Check rule names and option shapes in the schema before editing config.
 - Confirm candidate rules against the current package with `bun run lint` or `node_modules/oxlint/bin/oxlint -D <rule>`.
 - Before releasing a new rule, probe known local downstream consumers when practical to calibrate noise and fixability.
