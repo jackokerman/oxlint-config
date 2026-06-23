@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/jackokerman/oxlint-config/compare/v1.3.0...v1.4.0) (2026-06-23)
+
+
+### Features
+
+* require JSDoc on exported type fields ([e8e963c](https://github.com/jackokerman/oxlint-config/commit/e8e963c27b746eb447ecce0a80f0c5bbc4db11dd))
+
 # [1.3.0](https://github.com/jackokerman/oxlint-config/compare/v1.2.1...v1.3.0) (2026-06-23)
 
 
