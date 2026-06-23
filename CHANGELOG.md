@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/jackokerman/oxlint-config/compare/v1.2.0...v1.2.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* relax max params threshold ([853a93a](https://github.com/jackokerman/oxlint-config/commit/853a93a491ca880ea20273dd4886d8b23db00c18))
+
 # [1.2.0](https://github.com/jackokerman/oxlint-config/compare/v1.1.1...v1.2.0) (2026-06-23)
 
 
