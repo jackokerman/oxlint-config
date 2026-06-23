@@ -21,9 +21,9 @@ export default defineConfig({extends: [config]});
 
 ## Rules
 
-This config starts from Devvy's resolved Oxlint settings, with `suspicious` promoted to errors and `perf` kept as warnings. It enforces import declaration/member sorting, import-at-top placement, duplicate import cleanup, separate top-level type imports, and `type` aliases.
+This config starts from Devvy's resolved Oxlint settings, with `suspicious` promoted to errors and `perf` kept as warnings. It enforces import declaration/member sorting, import-at-top placement, duplicate import cleanup, separate top-level type imports, `type` aliases, and function declarations for named functions while allowing arrow functions.
 
-It does not enforce object key sorting, ternary bans, magic number bans, function declaration bans, Node builtin bans, or named export bans.
+It does not enforce object key sorting, ternary bans, magic number bans, Node builtin bans, or named export bans.
 
 ## Release policy
 
@@ -38,4 +38,3 @@ New lint errors are treated as minor releases by default. Package API or config-
 ## First publish checkpoint
 
 Before the first release, configure npm trusted publishing for this repository or complete `npm login` in the release environment. Then run the release workflow from `main` and verify `@jackokerman/oxlint-config` is visible on npm.
-

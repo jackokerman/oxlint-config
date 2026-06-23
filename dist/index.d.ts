@@ -26,7 +26,9 @@ declare const config: {
         "simple-import-sort/imports": "error";
         "sort-imports": "off";
         curly: "error";
-        "func-style": "off";
+        "func-style": ["error", "declaration", {
+            allowArrowFunctions: true;
+        }];
         "import/no-named-export": "off";
         "import/no-nodejs-modules": "off";
         "no-await-in-loop": "off";
