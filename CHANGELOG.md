@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/jackokerman/oxlint-config/compare/v1.2.1...v1.3.0) (2026-06-23)
+
+
+### Features
+
+* expose config layers ([4c54f19](https://github.com/jackokerman/oxlint-config/commit/4c54f191b5572f0f4561cd4aca1c3c8bf71e011c))
+* require jsdoc on exported contracts ([6697e9e](https://github.com/jackokerman/oxlint-config/commit/6697e9efe7b0ddaa8c4e8f808746257e1950f9d6))
+
 ## [1.2.1](https://github.com/jackokerman/oxlint-config/compare/v1.2.0...v1.2.1) (2026-06-23)
 
 
