@@ -32,6 +32,7 @@ declare const config: {
         }];
         "import/no-named-export": "off";
         "import/no-nodejs-modules": "off";
+        "max-params": ["error", number];
         "no-await-in-loop": "off";
         "no-else-return": ["error", {
             allowElseIf: false;
@@ -39,11 +40,15 @@ declare const config: {
         "no-magic-numbers": "off";
         "no-nested-ternary": "off";
         "no-ternary": "off";
+        "no-useless-concat": "error";
         "no-var": "error";
         "prefer-const": ["error", {
             destructuring: "all";
         }];
+        "prefer-template": "error";
         "sort-keys": "off";
+        "typescript/no-explicit-any": "error";
+        "unicorn/no-abusive-eslint-disable": "error";
         "unicorn/no-nested-ternary": "off";
     };
     env: {
