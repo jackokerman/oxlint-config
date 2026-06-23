@@ -34,7 +34,30 @@ export const runtimeConfig = defineConfig({
  */
 export const typescriptConfig = defineConfig({
 	rules: {
+		"typescript/array-type": [
+			"error",
+			{default: "array", readonly: "array"},
+		],
+		"typescript/ban-ts-comment": [
+			"error",
+			{
+				minimumDescriptionLength: 3,
+				"ts-check": false,
+				"ts-expect-error": "allow-with-description",
+				"ts-ignore": true,
+				"ts-nocheck": true,
+			},
+		],
+		"typescript/consistent-type-assertions": [
+			"error",
+			{
+				arrayLiteralTypeAssertions: "never",
+				assertionStyle: "as",
+				objectLiteralTypeAssertions: "never",
+			},
+		],
 		"typescript/consistent-type-definitions": ["error", "type"],
+		"typescript/consistent-type-exports": "error",
 		"typescript/consistent-type-imports": [
 			"error",
 			{
@@ -43,9 +66,13 @@ export const typescriptConfig = defineConfig({
 				prefer: "type-imports",
 			},
 		],
-		"typescript/no-explicit-any": "error",
 		"typescript/no-empty-object-type": "error",
+		"typescript/no-explicit-any": "error",
+		"typescript/no-import-type-side-effects": "error",
+		"typescript/no-non-null-assertion": "error",
+		"typescript/no-require-imports": "error",
 		"typescript/no-wrapper-object-types": "error",
+		"typescript/prefer-function-type": "error",
 	},
 });
 
@@ -149,10 +176,14 @@ export const styleConfig = defineConfig({
 		"no-var": "error",
 		"object-shorthand": "error",
 		"operator-assignment": "error",
-		"prefer-exponentiation-operator": "error",
 		"prefer-const": ["error", {destructuring: "all"}],
+		"prefer-exponentiation-operator": "error",
+		"prefer-object-has-own": "error",
 		"prefer-object-spread": "error",
+		"prefer-promise-reject-errors": "error",
 		"prefer-regex-literals": "error",
+		"prefer-rest-params": "error",
+		"prefer-spread": "error",
 		"prefer-template": "error",
 		radix: ["error", "always"],
 		"sort-keys": "off",
@@ -161,8 +192,10 @@ export const styleConfig = defineConfig({
 		"unicorn/no-nested-ternary": "off",
 		"unicorn/no-new-array": "error",
 		"unicorn/no-useless-undefined": ["error", {checkArguments: false}],
+		"unicorn/prefer-array-find": "error",
 		"unicorn/prefer-includes": "error",
 		"unicorn/prefer-node-protocol": "error",
+		"unicorn/prefer-set-has": "error",
 		"unicorn/prefer-string-slice": "error",
 		yoda: ["error", "never"],
 	},
