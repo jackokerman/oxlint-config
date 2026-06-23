@@ -1,5 +1,8 @@
 import { defineConfig } from "oxlint";
-const config = defineConfig({
+/**
+ * It centralizes plugin, category, environment, and ignore settings.
+ */
+export const runtimeConfig = defineConfig({
     plugins: ["typescript", "unicorn", "import", "promise", "node"],
     jsPlugins: [
         {
@@ -15,6 +18,15 @@ const config = defineConfig({
         style: "off",
         restriction: "off",
     },
+    env: {
+        node: true,
+    },
+    ignorePatterns: ["node_modules", "dist"],
+});
+/**
+ * It contains rules that only make sense for TypeScript-aware source files.
+ */
+export const typescriptConfig = defineConfig({
     rules: {
         "typescript/consistent-type-definitions": ["error", "type"],
         "typescript/consistent-type-imports": [
@@ -25,12 +37,27 @@ const config = defineConfig({
                 prefer: "type-imports",
             },
         ],
+        "typescript/no-explicit-any": "error",
+    },
+});
+/**
+ * It contains import layout and import hygiene rules.
+ */
+export const importsConfig = defineConfig({
+    rules: {
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import/first": "error",
         "import/no-duplicates": "error",
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
         "sort-imports": "off",
+    },
+});
+/**
+ * It contains general JavaScript and TypeScript style rules.
+ */
+export const styleConfig = defineConfig({
+    rules: {
         curly: "error",
         eqeqeq: ["error", "always"],
         "func-style": ["error", "declaration", { allowArrowFunctions: true }],
@@ -47,13 +74,14 @@ const config = defineConfig({
         "prefer-const": ["error", { destructuring: "all" }],
         "prefer-template": "error",
         "sort-keys": "off",
-        "typescript/no-explicit-any": "error",
         "unicorn/no-abusive-eslint-disable": "error",
         "unicorn/no-nested-ternary": "off",
     },
-    env: {
-        node: true,
-    },
-    ignorePatterns: ["node_modules", "dist"],
+});
+/**
+ * It is the complete shared preset used by ordinary package consumers.
+ */
+export const config = defineConfig({
+    extends: [runtimeConfig, typescriptConfig, importsConfig, styleConfig],
 });
 export default config;
