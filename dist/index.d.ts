@@ -1,5 +1,9 @@
 declare const config: {
     plugins: ("unicorn" | "typescript" | "import" | "promise" | "node")[];
+    jsPlugins: {
+        name: string;
+        specifier: string;
+    }[];
     categories: {
         correctness: "error";
         suspicious: "error";
@@ -18,13 +22,9 @@ declare const config: {
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"];
         "import/first": "error";
         "import/no-duplicates": "error";
-        "sort-imports": ["error", {
-            allowSeparatedGroups: false;
-            ignoreCase: false;
-            ignoreDeclarationSort: false;
-            ignoreMemberSort: false;
-            memberSyntaxSortOrder: ("all" | "none" | "multiple" | "single")[];
-        }];
+        "simple-import-sort/exports": "error";
+        "simple-import-sort/imports": "error";
+        "sort-imports": "off";
         curly: "error";
         "func-style": "off";
         "import/no-named-export": "off";

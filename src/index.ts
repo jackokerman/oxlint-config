@@ -2,6 +2,12 @@ import {defineConfig} from "oxlint";
 
 const config = defineConfig({
 	plugins: ["typescript", "unicorn", "import", "promise", "node"],
+	jsPlugins: [
+		{
+			name: "simple-import-sort",
+			specifier: "eslint-plugin-simple-import-sort",
+		},
+	],
 	categories: {
 		correctness: "error",
 		suspicious: "error",
@@ -23,16 +29,9 @@ const config = defineConfig({
 		"import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 		"import/first": "error",
 		"import/no-duplicates": "error",
-		"sort-imports": [
-			"error",
-			{
-				allowSeparatedGroups: false,
-				ignoreCase: false,
-				ignoreDeclarationSort: false,
-				ignoreMemberSort: false,
-				memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-			},
-		],
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": "error",
+		"sort-imports": "off",
 		curly: "error",
 		"func-style": "off",
 		"import/no-named-export": "off",
@@ -51,4 +50,3 @@ const config = defineConfig({
 });
 
 export default config;
-
