@@ -1,6 +1,6 @@
 {
 	"name": "@jackokerman/oxlint-config",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Shared Oxlint config for Jack Okerman's JS and TS tools.",
 	"type": "module",
 	"files": [

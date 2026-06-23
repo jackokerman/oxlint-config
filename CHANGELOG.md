@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/jackokerman/oxlint-config/compare/v1.4.0...v1.5.0) (2026-06-23)
+
+
+### Features
+
+* add stricter lint best practices ([8655d52](https://github.com/jackokerman/oxlint-config/commit/8655d52e7902be0703793e9d4832648a51eec228))
+
 # [1.4.0](https://github.com/jackokerman/oxlint-config/compare/v1.3.0...v1.4.0) (2026-06-23)
 
 
