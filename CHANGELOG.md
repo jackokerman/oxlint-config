@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/jackokerman/oxlint-config/compare/v1.6.0...v1.7.0) (2026-06-24)
+
+
+### Features
+
+* add shared oxfmt config helper ([30afdf8](https://github.com/jackokerman/oxlint-config/commit/30afdf83bc729be132c97f7ac2872e1a8626a312))
+
 # [1.6.0](https://github.com/jackokerman/oxlint-config/compare/v1.5.1...v1.6.0) (2026-06-23)
 
 
