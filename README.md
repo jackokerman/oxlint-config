@@ -1,10 +1,11 @@
 # @jackokerman/oxlint-config
 
-Shared Oxlint defaults for JavaScript and TypeScript projects.
+Shared Oxlint config and companion Oxfmt defaults for JavaScript and
+TypeScript projects.
 
-## Usage
+## Quick start
 
-Install the config next to `oxlint`:
+Install the lint preset next to `oxlint`:
 
 ```sh
 bun add --dev oxlint @jackokerman/oxlint-config
@@ -19,17 +20,23 @@ import {defineConfig} from "oxlint";
 export default defineConfig({extends: [config]});
 ```
 
-## Oxfmt config
+## Formatter setup
 
-This package also ships the companion Oxfmt defaults used with the lint preset.
-Oxfmt does not currently auto-discover shared package configs, so materialize
-the checked-in project config:
+When a project also uses the companion formatter stack, install `oxfmt` and
+`@jackokerman/comment-width-check`:
+
+```sh
+bun add --dev oxfmt @jackokerman/comment-width-check
+```
+
+Oxfmt does not auto-discover shared package configs, so write the shared config
+into the project:
 
 ```sh
 bunx jack-oxfmt-config write
 ```
 
-Then wire the local formatter scripts to the project-local `.oxfmtrc.json`:
+Add formatter scripts that use the checked-in `.oxfmtrc.json`:
 
 ```json
 {
@@ -41,15 +48,19 @@ Then wire the local formatter scripts to the project-local `.oxfmtrc.json`:
 }
 ```
 
-Install `oxfmt` and `@jackokerman/comment-width-check` next to this package
-when using the formatter stack.
+`jack-oxfmt-config check` is intended for CI so local `.oxfmtrc.json` files do
+not drift from the shared defaults.
 
-## Config structure
+## Exports
 
-The default export is the complete shared preset and is the right choice for
-normal consumers.
+The default export is the complete Oxlint preset:
 
-Named config layers are also exported for future composition:
+```ts
+import config from "@jackokerman/oxlint-config";
+```
+
+Named config layers are available for projects that need to compose the preset
+manually:
 
 - `runtimeConfig` centralizes plugins, categories, environment settings, and
   ignore patterns.
@@ -57,15 +68,19 @@ Named config layers are also exported for future composition:
 - `importsConfig` contains import layout and hygiene rules.
 - `styleConfig` contains general JavaScript and TypeScript style rules.
 
-The `./oxfmt` export exposes the same formatter config used by the
-`jack-oxfmt-config` CLI for tooling that wants the object directly.
+The companion formatter config is also exported for tools that need the object
+directly:
+
+```ts
+import {oxfmtConfig, renderOxfmtConfig} from "@jackokerman/oxlint-config/oxfmt";
+```
+
+## Maintainer notes
 
 Keep plugin declarations in `runtimeConfig`. Oxlint's `plugins` field is
 replacement-style during config merging, so additive presets should not each
 declare their own partial plugin lists unless the final composed config owns
 that merge explicitly.
-
-## Rule maintenance
 
 Start rule discovery from `node_modules/oxlint/configuration_schema.json`; it is
 the local source of truth for supported rule names, option shapes, and inline
@@ -76,10 +91,6 @@ Prefer explicit rule entries when this package makes a policy choice, including
 explicit `off` entries for recommended rules that this config intentionally does
 not want. Do not add a rule only because it exists; confirm that it catches a
 real pattern this config should own.
-
-## Development
-
-The exported config is the source of truth for enabled rules.
 
 Run the local checks before publishing:
 
@@ -95,4 +106,5 @@ Use conventional commits:
 - `feat:` publishes a minor.
 - Breaking changes publish a major through `!` or `BREAKING CHANGE:`.
 
-New lint errors are treated as minor releases by default. Package API or config-consumption breaks are major releases.
+New lint errors are treated as minor releases by default. Package API or
+config-consumption breaks are major releases.
