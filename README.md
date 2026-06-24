@@ -19,6 +19,31 @@ import {defineConfig} from "oxlint";
 export default defineConfig({extends: [config]});
 ```
 
+## Oxfmt config
+
+This package also ships the companion Oxfmt defaults used with the lint preset.
+Oxfmt does not currently auto-discover shared package configs, so materialize
+the checked-in project config:
+
+```sh
+bunx jack-oxfmt-config write
+```
+
+Then wire the local formatter scripts to the project-local `.oxfmtrc.json`:
+
+```json
+{
+  "scripts": {
+    "fmt": "oxfmt . && comment-width-check . --write",
+    "fmt:check": "oxfmt --check . && comment-width-check .",
+    "check:oxfmt-config": "jack-oxfmt-config check"
+  }
+}
+```
+
+Install `oxfmt` and `@jackokerman/comment-width-check` next to this package
+when using the formatter stack.
+
 ## Config structure
 
 The default export is the complete shared preset and is the right choice for
@@ -31,6 +56,9 @@ Named config layers are also exported for future composition:
 - `typescriptConfig` contains TypeScript-specific rules.
 - `importsConfig` contains import layout and hygiene rules.
 - `styleConfig` contains general JavaScript and TypeScript style rules.
+
+The `./oxfmt` export exposes the same formatter config used by the
+`jack-oxfmt-config` CLI for tooling that wants the object directly.
 
 Keep plugin declarations in `runtimeConfig`. Oxlint's `plugins` field is
 replacement-style during config merging, so additive presets should not each

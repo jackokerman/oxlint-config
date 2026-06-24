@@ -8,10 +8,17 @@
 	],
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"bin": {
+		"jack-oxfmt-config": "./dist/oxfmt-config-cli.js"
+	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./oxfmt": {
+			"types": "./dist/oxfmt-config.d.ts",
+			"default": "./dist/oxfmt-config.js"
 		}
 	},
 	"scripts": {
@@ -23,7 +30,17 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"peerDependencies": {
+		"@jackokerman/comment-width-check": ">=1.1.0",
+		"oxfmt": ">=0.56.0",
 		"oxlint": ">=1.52.0"
+	},
+	"peerDependenciesMeta": {
+		"@jackokerman/comment-width-check": {
+			"optional": true
+		},
+		"oxfmt": {
+			"optional": true
+		}
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
