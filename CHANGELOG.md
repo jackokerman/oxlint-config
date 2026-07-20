@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/jackokerman/oxlint-config/compare/v1.7.0...v1.8.0) (2026-07-20)
+
+
+### Features
+
+* add slop scan check bin ([9c660c9](https://github.com/jackokerman/oxlint-config/commit/9c660c9f84f90bd8de1b05896367ecbccd6c9a1a))
+
 # [1.7.0](https://github.com/jackokerman/oxlint-config/compare/v1.6.0...v1.7.0) (2026-06-24)
 
 
