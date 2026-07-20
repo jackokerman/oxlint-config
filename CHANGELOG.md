@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/jackokerman/oxlint-config/compare/v1.8.0...v1.9.0) (2026-07-20)
+
+
+### Features
+
+* support slop scan check targets ([afb90bd](https://github.com/jackokerman/oxlint-config/commit/afb90bd71fe7fc1b2956cad82f9c16c86c27e3cb))
+
 # [1.8.0](https://github.com/jackokerman/oxlint-config/compare/v1.7.0...v1.8.0) (2026-07-20)
 
 
