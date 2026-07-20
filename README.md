@@ -47,6 +47,26 @@ Add formatter scripts that use the checked-in `.oxfmtrc.json`:
 
 `jack-oxfmt-config check` is intended for CI so local `.oxfmtrc.json` files do not drift from the shared defaults.
 
+## Slop Scan setup
+
+When a project uses `slop-scan` as a blocking quality gate, install it next to this package:
+
+```sh
+bun add --dev slop-scan
+```
+
+Use the shared check wrapper from package scripts:
+
+```json
+{
+  "scripts": {
+    "check:slop": "slop-scan-check"
+  }
+}
+```
+
+`slop-scan-check` runs `slop-scan scan . --json`, exits `0` only when `summary.findingCount` is zero, and prints `slop-scan scan . --lint` output when findings are present.
+
 ## Exports
 
 The default export is the complete Oxlint preset:

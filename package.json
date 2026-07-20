@@ -9,7 +9,8 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"bin": {
-		"jack-oxfmt-config": "./dist/oxfmt-config-cli.js"
+		"jack-oxfmt-config": "./dist/oxfmt-config-cli.js",
+		"slop-scan-check": "./dist/slop-scan-check-cli.js"
 	},
 	"exports": {
 		".": {
@@ -32,13 +33,17 @@
 	"peerDependencies": {
 		"@jackokerman/comment-width-check": ">=1.1.0",
 		"oxfmt": ">=0.56.0",
-		"oxlint": ">=1.52.0"
+		"oxlint": ">=1.52.0",
+		"slop-scan": ">=0.3.0"
 	},
 	"peerDependenciesMeta": {
 		"@jackokerman/comment-width-check": {
 			"optional": true
 		},
 		"oxfmt": {
+			"optional": true
+		},
+		"slop-scan": {
 			"optional": true
 		}
 	},
