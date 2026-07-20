@@ -49,13 +49,7 @@ Add formatter scripts that use the checked-in `.oxfmtrc.json`:
 
 ## Slop Scan setup
 
-When a project uses `slop-scan` as a blocking quality gate, install it next to this package:
-
-```sh
-bun add --dev slop-scan
-```
-
-Use the shared check wrapper from package scripts:
+When a project uses Slop Scan as a blocking quality gate, use the shared check wrapper from package scripts:
 
 ```json
 {
@@ -65,7 +59,7 @@ Use the shared check wrapper from package scripts:
 }
 ```
 
-`slop-scan-check` runs `slop-scan scan . --json`, exits `0` only when `summary.findingCount` is zero, and prints `slop-scan scan . --lint` output when findings are present. Pass a path when the scan should target a subdirectory:
+`slop-scan-check` runs the package-local `slop-scan scan . --json`, exits `0` only when `summary.findingCount` is zero, and prints `slop-scan scan . --lint` output when findings are present. Pass a path when the scan should target a subdirectory:
 
 ```json
 {

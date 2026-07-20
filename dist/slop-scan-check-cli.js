@@ -1,15 +1,11 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
+import { dirname, join } from "node:path";
 import process from "node:process";
-function isErrorWithCode(error, code) {
-    return (error instanceof Error &&
-        "code" in error &&
-        error.code === code);
-}
+import { fileURLToPath } from "node:url";
+const SLOP_SCAN_ENTRYPOINT = fileURLToPath(import.meta.resolve("slop-scan"));
+const SLOP_SCAN_BIN = join(dirname(dirname(SLOP_SCAN_ENTRYPOINT)), "bin/slop-scan.js");
 function spawnError(error) {
-    if (isErrorWithCode(error, "ENOENT")) {
-        return new Error("`slop-scan` is not installed or not on PATH. Install it in this project, then rerun `slop-scan-check`.", { cause: error });
-    }
     return error instanceof Error ? error : new Error(String(error));
 }
 function failedWithoutCode(signal) {
@@ -18,7 +14,7 @@ function failedWithoutCode(signal) {
 }
 function runSlopScanCaptured(args) {
     return new Promise((resolve, reject) => {
-        const proc = spawn("slop-scan", args, {
+        const proc = spawn(process.execPath, [SLOP_SCAN_BIN, ...args], {
             stdio: ["ignore", "pipe", "pipe"],
         });
         if (proc.stdout === null || proc.stderr === null) {
@@ -49,7 +45,9 @@ function runSlopScanCaptured(args) {
 }
 function runSlopScanInherited(args) {
     return new Promise((resolve, reject) => {
-        const proc = spawn("slop-scan", args, { stdio: "inherit" });
+        const proc = spawn(process.execPath, [SLOP_SCAN_BIN, ...args], {
+            stdio: "inherit",
+        });
         proc.on("error", (error) => {
             reject(spawnError(error));
         });

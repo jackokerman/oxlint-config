@@ -33,17 +33,13 @@
 	"peerDependencies": {
 		"@jackokerman/comment-width-check": ">=1.1.0",
 		"oxfmt": ">=0.56.0",
-		"oxlint": ">=1.52.0",
-		"slop-scan": ">=0.3.0"
+		"oxlint": ">=1.52.0"
 	},
 	"peerDependenciesMeta": {
 		"@jackokerman/comment-width-check": {
 			"optional": true
 		},
 		"oxfmt": {
-			"optional": true
-		},
-		"slop-scan": {
 			"optional": true
 		}
 	},
@@ -68,6 +64,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"eslint-plugin-jsdoc": "61.4.0",
-		"eslint-plugin-simple-import-sort": "^13.0.0"
+		"eslint-plugin-simple-import-sort": "^13.0.0",
+		"slop-scan": "0.3.0"
 	}
 }
