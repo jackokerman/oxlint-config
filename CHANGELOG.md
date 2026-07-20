@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/jackokerman/oxlint-config/compare/v1.9.0...v1.10.0) (2026-07-20)
+
+
+### Features
+
+* bundle slop scan checker dependency ([1a656dc](https://github.com/jackokerman/oxlint-config/commit/1a656dc3d9300fb0c1ab682f7e8e3e7d92785aa7))
+
 # [1.9.0](https://github.com/jackokerman/oxlint-config/compare/v1.8.0...v1.9.0) (2026-07-20)
 
 
