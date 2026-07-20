@@ -65,7 +65,15 @@ Use the shared check wrapper from package scripts:
 }
 ```
 
-`slop-scan-check` runs `slop-scan scan . --json`, exits `0` only when `summary.findingCount` is zero, and prints `slop-scan scan . --lint` output when findings are present.
+`slop-scan-check` runs `slop-scan scan . --json`, exits `0` only when `summary.findingCount` is zero, and prints `slop-scan scan . --lint` output when findings are present. Pass a path when the scan should target a subdirectory:
+
+```json
+{
+  "scripts": {
+    "check:slop": "slop-scan-check scripts/ts"
+  }
+}
+```
 
 ## Exports
 

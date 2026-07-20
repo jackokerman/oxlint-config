@@ -80,8 +80,29 @@ function reportFindingCount(report) {
         ? summary.findingCount
         : undefined;
 }
+function usage() {
+    return "Usage: slop-scan-check [path]";
+}
+function scanTarget(args) {
+    if (args.length === 0) {
+        return ".";
+    }
+    if (args.length === 1 && (args[0] === "--help" || args[0] === "-h")) {
+        console.log(usage());
+        process.exit(0);
+    }
+    if (args.length === 1) {
+        const target = args[0];
+        if (target !== undefined && target.trim() !== "") {
+            return target;
+        }
+    }
+    process.stderr.write(`${usage()}\n`);
+    process.exit(1);
+}
 async function main() {
-    const result = await runSlopScanCaptured(["scan", ".", "--json"]);
+    const target = scanTarget(process.argv.slice(2));
+    const result = await runSlopScanCaptured(["scan", target, "--json"]);
     if (result.code !== 0) {
         process.stdout.write(result.stdout);
         process.stderr.write(result.stderr);
@@ -103,7 +124,7 @@ async function main() {
     }
     if (findingCount > 0) {
         process.stderr.write(`slop-scan found ${findingCount} finding(s):\n\n`);
-        await runSlopScanInherited(["scan", ".", "--lint"]);
+        await runSlopScanInherited(["scan", target, "--lint"]);
         process.exit(1);
     }
     console.log("0 findings");
